@@ -2,10 +2,19 @@ const mongoose = require('mongoose');
 const bcrypt = require('bcrypt');
 
 const userSchema = new mongoose.Schema({
-  username: { type: String },
-  email: { type: String },
+  image: { type: String},
+  name: { type: String, required: true },
+  username: { type: String, required: true },
+  email: { type: String, required: true },
   password: { type: String, required: true }
 });
+
+userSchema.virtual('imageSRC')
+  .get(function imageSRC(){
+    if(!this.image) return null;
+    if(this.image.match(/^http/)) return this.image;
+    return `https://s3-eu-west-1.amazonaws.com/wdi-25-london-project-2/${this.image}`;
+  });
 
 userSchema
   .virtual('passwordConfirmation') // virtual because you don't want to store it in the database but we do want to check it's there and do some logic with it.

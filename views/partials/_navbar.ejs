@@ -1,0 +1,34 @@
+<header>
+  <nav>
+    <ul class="container">
+      <li class="menu">&#9776;</li>
+        <div class="dropdown">
+        <% if(locals.isAuthenticated) { %>
+          <img src="<%= user.imageSRC %>" alt="<%= user.imageSRC %>"><br>
+          <li class="nav-item">
+            <a class="nav-link" href="/logout">Logout</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/recommendations/new">Users</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/recommendations">Add</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/recommendations">Feed</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/recommendations">Pylons</a>
+          </li>
+        <% } else { %>
+          <li class="nav-item">
+            <a class="nav-link" href="/login">Log In</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/register">Register</a>
+          </li>
+        <% } %>
+      </div>
+    </ul>
+  </nav>
+</header>

@@ -1,1 +1,228 @@
+@import "bootstrap/bootstrap";
 
+//Can import variables from another sheet but only using two
+$petrol-blue: #004a65;
+$plum: #94435D;
+$background: #C5D7DB;
+$input: #4E98AC;
+
+body {
+  font-family: 'Raleway', sans-serif;
+  background-color: $background;
+}
+
+* {
+  font-family: inherit;
+}
+
+.btn, a {
+  color: $background;
+  text-decoration: none;
+  font-family: 'Raleway', sans-serif;
+  padding: 10;
+}
+
+.btn {
+  background-color: $input;
+  float: left;
+  width: 100px;
+  margin: 12px;
+  margin-left: 0;
+  border-color: $petrol-blue;
+}
+
+.flash {
+  background-color: $input;
+  border: 2px solid $petrol-blue;
+  color: $background;
+  text-align: center;
+  border-radius: 10%;
+  margin-top: 2%;
+}
+
+h1, h2, h3 {
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-top: 0;
+  color: $plum;
+}
+
+header {
+  position: fixed;
+  top: 0; //fix it to very top
+  left: 0; //have to tell it because it is fixed
+  right: 0;
+  z-index: 2;
+  height: 40px;
+  background-color: rgba(20, 20, 20, 0);
+  transition: background-color 0.2s ease;
+  &.opaque {
+    background-color: rgba(20, 20, 20, 0.6); //jQuery so once the bottom of the header is hit, this opacity kicks in and we can see the header on a slightly grey background
+  }
+
+.menu {
+  cursor: pointer;
+  display: none;
+  font-size: 30px;
+  list-style-type: none;
+  color: $plum;
+}
+
+nav {
+  ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    li {
+      display: inline-block;
+      float: right;
+      margin-left: 20px;
+      line-height: 40px;
+      &:last-of-type {
+        margin-left:0;
+      }
+      a {
+        color: $petrol-blue;
+        letter-spacing: 1px;
+        text-transform: uppercase;
+        font-weight: bold;
+        position: relative;
+        &:after {
+          content: "";
+          height: 2px;
+          width: 100%;
+          background-color: $plum;
+          position: absolute;
+          bottom: -4px;
+          left: 0;
+          opacity: 0;
+          transition: opacity 0.2s ease;
+        }
+        &:hover {
+          color: $plum;
+          &:after {
+            opacity: 1;
+          }
+        }
+      }
+    }
+  }
+}
+}
+
+section{
+  text-align: center;
+  padding-top: 80px;
+  padding-bottom: 80px;
+  position: relative;
+  border-bottom: 2px solid $petrol-blue;
+  &:last-of-type {
+    border-bottom: 0;
+  }
+  h2 {
+    font-size: 28px;
+  }
+  p {
+    color: $petrol-blue;
+  }
+}
+
+#hero {
+  height: 100vh;
+  background-image: url('../assets/images/pylon.jpg'); //lineat gradient makes very slight black translucency layer incase there's white text
+  background-position: center;
+  position: relative;
+  background-repeat: no-repeat;
+  h1 {
+   font-size: 45px;
+   position: absolute;
+   top: 83%;
+   left: 50%;
+   transform: translate(-50%, -50%);
+   color: $plum;
+ }
+}
+
+.register {
+  transform: translate(-50%, 15%);
+  left: 50%;
+}
+
+.login{
+  transform: translate(-50%, 25%);
+  left: 50%;
+}
+
+.new, .edit {
+  left: 25%;
+}
+
+.login, .register, .new, .edit {
+  position: relative;
+  label {
+    color: $petrol-blue;
+  }
+  .form-control, text-area {
+    color: $input;
+  }
+}
+
+.recommendation {
+  background-position: center;
+  position: relative;
+  list-style: none;
+  transform: translate(-50%);
+  left: 65%;
+  p {
+  text-align: justify;
+  font-size: 15px;
+  }
+  .image {
+    background-position: center;
+    background-size: cover;
+    &:after {
+      content: "";
+      padding-bottom: 100%;
+      display: block;
+    }
+  }
+}
+
+.second-column {
+  padding-top: 3%;
+  color: $petrol-blue;
+}
+
+.row {
+  margin-top: 2%;
+}
+
+footer {
+  background-color: rgba(20, 20, 20, 1);
+  padding: 10px 0;
+  text-align: center;
+  color: $petrol-blue;
+}
+
+
+@media only screen and (max-width: 950px) {
+
+  header {
+    height: auto;
+    nav {
+      ul {
+        li {
+          display: block;
+          float: none;
+          text-align: right;
+          &.menu {
+            display: block;
+          }
+        }
+        .dropdown {
+          display: none;
+        }
+      }
+    }
+  }
+}

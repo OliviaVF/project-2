@@ -1,4 +1,12 @@
-<form method="POST" action="/register">
+<form method="POST" action="/register" enctype="multipart/form-data">
+  <div>
+      <label for="filename">Image file</label>
+      <input type="file" name="filename" id="filename">
+  </div>
+  <div>
+    <label for="name">Name</label>
+    <input type="text" name="name" id="name">
+  </div>
   <div>
     <label for="username">Username</label>
     <input type="text" name="username" id="username">

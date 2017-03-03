@@ -2,18 +2,20 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>project-2</title>
-    <link rel="stylesheet" href="/css/style.css">
-    <script src="/js/app.js" charset="utf-8"></script>
+    <title>PYLON</title>
+    <% include ./partials/_stylesheets %>
   </head>
   <body>
-    <% for(const type in messages) { %>
-      <div class="<%= type %>">
-        <h5><%= messages[type] %></h5>
-      </div>
-    <% } %>
-    <main>
+    <header>
+      <% include ./partials/_navbar %>
+    </header>
+    <main class="container">
+      <h1>PYLON</h1>
+      <% for(const type in messages) { %>
+        <p class="flash <%= type %>"><%= messages[type] %></p>
+      <% } %>
       <%- body %>
     </main>
+      <% include ./partials/_scripts %>
   </body>
 </html>
