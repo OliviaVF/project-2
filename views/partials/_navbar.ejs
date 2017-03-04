@@ -4,21 +4,23 @@
       <li class="menu">&#9776;</li>
         <div class="dropdown">
         <% if(locals.isAuthenticated) { %>
-          <img src="<%= user.imageSRC %>" alt="<%= user.imageSRC %>"><br>
+          <li "nav-item">
+            <a href="/users/<%= user.id %>"><div class="image" style="background-image:url(<%= user.imageSRC %>)" alt="<%= user.username %>"></div></a><br>
+          </li>
           <li class="nav-item">
             <a class="nav-link" href="/logout">Logout</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="/recommendations/new">Users</a>
+            <a class="nav-link" href="/users">Users</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="/recommendations">Add</a>
+            <a class="nav-link" href="/pylons/new">Add</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="/recommendations">Feed</a>
+            <a class="nav-link" href="/feed">Feed</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="/recommendations">Pylons</a>
+            <a class="nav-link" href="/pylons">Pylons</a>
           </li>
         <% } else { %>
           <li class="nav-item">

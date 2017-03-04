@@ -5,15 +5,23 @@ const staticsController = require('../controllers/statics');
 const secureRoute = require('../lib/secureRoute');
 const upload = require('../lib/upload');
 
+const users = require('../controllers/users');
+
 router.route('/')
   .get(staticsController.index);
 
-// router.get('/', (req, res) => res.render('index'));
+router.route('/pylons/new')
+  .get(secureRoute, users.newPylon);
+
+router.route('/users')
+  .get(secureRoute, users.index);
+
+router.route('/users/:id')
+  .get(secureRoute, users.index);
 
 router.route('/register')
   .get(registrationsController.new)
   .post(upload.single('filename'), registrationsController.create);
-
 
 router.route('/login')
   .get(sessionsController.new)

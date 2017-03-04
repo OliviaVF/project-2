@@ -1,14 +1,15 @@
 @import "bootstrap/bootstrap";
 
 //Can import variables from another sheet but only using two
-$petrol-blue: #004a65;
-$plum: #94435D;
-$background: #C5D7DB;
-$input: #4E98AC;
+$dark-blue: #405bc1;
+$green: #00a289;
+$yellow: #f1da3f;
+$medium-blue: #7297b4;
+$red: #db5c66;
 
 body {
   font-family: 'Raleway', sans-serif;
-  background-color: $background;
+  background-color: $yellow;
 }
 
 * {
@@ -16,25 +17,26 @@ body {
 }
 
 .btn, a {
-  color: $background;
+  color: $dark-blue;
   text-decoration: none;
   font-family: 'Raleway', sans-serif;
   padding: 10;
+  font-weight: bold;
 }
 
 .btn {
-  background-color: $input;
+  background-color: $red;
   float: left;
   width: 100px;
   margin: 12px;
   margin-left: 0;
-  border-color: $petrol-blue;
+  border-color: $dark-blue;
 }
 
 .flash {
-  background-color: $input;
-  border: 2px solid $petrol-blue;
-  color: $background;
+  background-color: $medium-blue;
+  border: 2px solid $dark-blue;
+  color: $yellow;
   text-align: center;
   border-radius: 10%;
   margin-top: 2%;
@@ -44,7 +46,7 @@ h1, h2, h3 {
   text-transform: uppercase;
   letter-spacing: 1px;
   margin-top: 0;
-  color: $plum;
+  color: $green;
 }
 
 header {
@@ -65,7 +67,7 @@ header {
   display: none;
   font-size: 30px;
   list-style-type: none;
-  color: $plum;
+  color: $green;
 }
 
 nav {
@@ -82,7 +84,7 @@ nav {
         margin-left:0;
       }
       a {
-        color: $petrol-blue;
+        color: $dark-blue;
         letter-spacing: 1px;
         text-transform: uppercase;
         font-weight: bold;
@@ -91,7 +93,7 @@ nav {
           content: "";
           height: 2px;
           width: 100%;
-          background-color: $plum;
+          background-color: $green;
           position: absolute;
           bottom: -4px;
           left: 0;
@@ -99,7 +101,7 @@ nav {
           transition: opacity 0.2s ease;
         }
         &:hover {
-          color: $plum;
+          color: $green;
           &:after {
             opacity: 1;
           }
@@ -110,12 +112,23 @@ nav {
 }
 }
 
+.image {
+  display: inline-block;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+  margin-top: 10px;
+}
+
 section{
   text-align: center;
   padding-top: 80px;
   padding-bottom: 80px;
   position: relative;
-  border-bottom: 2px solid $petrol-blue;
+  border-bottom: 2px solid $dark-blue;
   &:last-of-type {
     border-bottom: 0;
   }
@@ -123,7 +136,7 @@ section{
     font-size: 28px;
   }
   p {
-    color: $petrol-blue;
+    color: $dark-blue;
   }
 }
 
@@ -139,7 +152,7 @@ section{
    top: 83%;
    left: 50%;
    transform: translate(-50%, -50%);
-   color: $plum;
+   color: $green;
  }
 }
 
@@ -160,10 +173,11 @@ section{
 .login, .register, .new, .edit {
   position: relative;
   label {
-    color: $petrol-blue;
+    color: $dark-blue;
+    font-weight: bold;
   }
   .form-control, text-area {
-    color: $input;
+    color: $medium-blue;
   }
 }
 
@@ -177,20 +191,11 @@ section{
   text-align: justify;
   font-size: 15px;
   }
-  .image {
-    background-position: center;
-    background-size: cover;
-    &:after {
-      content: "";
-      padding-bottom: 100%;
-      display: block;
-    }
-  }
 }
 
 .second-column {
   padding-top: 3%;
-  color: $petrol-blue;
+  color: $dark-blue;
 }
 
 .row {
@@ -201,7 +206,11 @@ footer {
   background-color: rgba(20, 20, 20, 1);
   padding: 10px 0;
   text-align: center;
-  color: $petrol-blue;
+  color: $dark-blue;
+}
+
+#map {
+  height: calc(80vh - 50px);
 }
 
 

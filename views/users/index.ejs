@@ -1,0 +1,8 @@
+<% users.forEach((user) => { %>
+  <div class="row user">
+    <div class="col-md-3">
+      <a href="/users/<%= user.id %>/<%=user.pylons%>"><h2><%= user.username %></h2></a>
+      <div class="image" style="background-image:url(<%= user.imageSRC %>)" alt="<%= user.username %>"></div>
+    </div>
+  </div>
+<% }) %>
