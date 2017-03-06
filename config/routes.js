@@ -6,18 +6,28 @@ const secureRoute = require('../lib/secureRoute');
 const upload = require('../lib/upload');
 
 const users = require('../controllers/users');
+const pylons = require('../controllers/pylons');
 
 router.route('/')
   .get(staticsController.index);
 
+router.route('/pylons')
+  .get(secureRoute, pylons.index)
+  .post(secureRoute, pylons.create);
+
 router.route('/pylons/new')
-  .get(secureRoute, users.newPylon);
+  .get(secureRoute, pylons.new);
 
 router.route('/users')
   .get(secureRoute, users.index);
 
 router.route('/users/:id')
-  .get(secureRoute, users.index);
+  .get(secureRoute, users.show)
+  .delete(secureRoute, users.delete);
+
+// logged in user's profile page
+// router.route('/user')
+// .get(secureRoute, registrations.show) -> could use the users/show template
 
 router.route('/register')
   .get(registrationsController.new)

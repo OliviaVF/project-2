@@ -1,2 +1,16 @@
 <h1><%= user.username %></h1>
 <div class="image" style="background-image:url(<%= user.imageSRC %>)" alt="<%= user.username %>"></div>
+
+<% pylons.forEach((pylon) => { %>
+  <div>
+    <h2><%= pylon.name %></h2>
+    <p>
+      <%= pylon.category %><br>
+      <%= pylon.address %><br>
+      <%= pylon.website %><br>
+      <%= pylon.tel %><br>
+      <%= pylon.comments %><br>
+      <%= pylon.createdBy.username %>
+    </p>
+  </div>
+<% }) %>

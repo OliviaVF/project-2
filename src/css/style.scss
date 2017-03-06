@@ -235,3 +235,13 @@ footer {
     }
   }
 }
+
+input[type=text][disabled] {
+  color: red;
+  background-color: transparent;
+  border-color: transparent;
+}
+
+input {
+  width: 200px;
+}

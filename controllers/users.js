@@ -1,4 +1,5 @@
 const User = require('../models/user');
+const Pylon = require('../models/pylon');
 
 function indexRoute(req, res, next) {
   User
@@ -14,7 +15,12 @@ function showRoute(req, res, next) {
   .exec()
   .then((user) => {
     if(!user) return res.notFound();
-    return res.render('users/show', { user });
+    return Pylon
+      .find({ createdBy: user.id })
+      .exec()
+      .then((pylons) => {
+        res.render('users/show', { user, pylons });
+      });
   })
   .catch(next);
 }
@@ -28,13 +34,9 @@ function deleteRoute(req, res, next) {
     .catch(next);
 }
 
-function newPylonRoute(req, res) {
-  res.render('users/newPylon');
-}
 
 module.exports = {
   index: indexRoute,
   show: showRoute,
-  delete: deleteRoute,
-  newPylon: newPylonRoute
+  delete: deleteRoute
 };

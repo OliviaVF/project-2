@@ -1,0 +1,13 @@
+<% pylons.forEach((pylon) => { %>
+  <div>
+      <h2><%= pylon.name %></h2>
+      <p>
+        <%= pylon.category %><br>
+        <%= pylon.address %><br>
+        <%= pylon.website %><br>
+        <%= pylon.tel %><br>
+        <%= pylon.comments %><br>
+        <a href="/users/<%= user.id %>"><%= pylon.createdBy.username %></a>
+      </p>
+  </div>
+<% }) %>
