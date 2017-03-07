@@ -3,13 +3,21 @@
 //Can import variables from another sheet but only using two
 $dark-blue: #405bc1;
 $green: #00a289;
-$yellow: #f1da3f;
+$yellow: #fce650;
 $medium-blue: #7297b4;
-$red: #db5c66;
+$red: #ef4c59;
+$grey-blue: #ccd8dc;
 
 body {
   font-family: 'Raleway', sans-serif;
-  background-color: $yellow;
+  background-image: url('../assets/images/background.jpg');
+  background-position: center;
+  position: relative;
+}
+
+main {
+  background-color: white;
+  height: 100vh;
 }
 
 * {
@@ -17,20 +25,30 @@ body {
 }
 
 .btn, a {
-  color: $dark-blue;
+  color: black;
   text-decoration: none;
+  text-transform: uppercase;
   font-family: 'Raleway', sans-serif;
   padding: 10;
   font-weight: bold;
+  font-size: 15px;
+  &:hover {
+    color: $red;
+  }
 }
 
 .btn {
-  background-color: $red;
-  float: left;
-  width: 100px;
+  background-color: white;
+  width: 220px;
   margin: 12px;
-  margin-left: 0;
-  border-color: $dark-blue;
+  margin-left: 30%;
+  border: 2px solid black;
+  letter-spacing: 3px;
+  border-radius: 0;
+  padding: 20px;
+  &:hover {
+    border-color: $red;
+  }
 }
 
 .flash {
@@ -55,11 +73,8 @@ header {
   left: 0; //have to tell it because it is fixed
   right: 0;
   z-index: 2;
-  height: 40px;
-  background-color: rgba(20, 20, 20, 0);
-  transition: background-color 0.2s ease;
-  &.opaque {
-    background-color: rgba(20, 20, 20, 0.6); //jQuery so once the bottom of the header is hit, this opacity kicks in and we can see the header on a slightly grey background
+  background-color: $green;
+  height: 8%;
   }
 
 .menu {
@@ -67,7 +82,7 @@ header {
   display: none;
   font-size: 30px;
   list-style-type: none;
-  color: $green;
+  color: $yellow;
 }
 
 nav {
@@ -84,8 +99,8 @@ nav {
         margin-left:0;
       }
       a {
-        color: $dark-blue;
-        letter-spacing: 1px;
+        color: $yellow;
+        letter-spacing: 3px;
         text-transform: uppercase;
         font-weight: bold;
         position: relative;
@@ -93,15 +108,15 @@ nav {
           content: "";
           height: 2px;
           width: 100%;
-          background-color: $green;
+          background-color: $red;
           position: absolute;
-          bottom: -4px;
+          bottom: -1px;
           left: 0;
           opacity: 0;
           transition: opacity 0.2s ease;
         }
         &:hover {
-          color: $green;
+          color: $red;
           &:after {
             opacity: 1;
           }
@@ -110,54 +125,51 @@ nav {
     }
   }
 }
-}
 
-.image {
+
+#navbarProfilePic {
   display: inline-block;
   width: 40px;
   height: 40px;
   border-radius: 50%;
-  background-repeat: no-repeat;
-  background-position: center center;
-  background-size: cover;
   margin-top: 10px;
-}
-
-section{
-  text-align: center;
-  padding-top: 80px;
-  padding-bottom: 80px;
-  position: relative;
-  border-bottom: 2px solid $dark-blue;
-  &:last-of-type {
-    border-bottom: 0;
-  }
-  h2 {
-    font-size: 28px;
-  }
-  p {
-    color: $dark-blue;
-  }
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
 }
 
 #hero {
   height: 100vh;
-  background-image: url('../assets/images/pylon.jpg'); //lineat gradient makes very slight black translucency layer incase there's white text
-  background-position: center;
-  position: relative;
-  background-repeat: no-repeat;
+  #pylon {
+    display: inline-block;
+    width: 400px;
+    height: 400px;;
+    margin-left: 32%;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+  }
   h1 {
    font-size: 45px;
    position: absolute;
-   top: 83%;
+   top: 85%;
    left: 50%;
    transform: translate(-50%, -50%);
    color: $green;
  }
+ h2 {
+   font-size: 28px;
+   text-align: center;
+ }
+ p {
+   text-align: center;
+   color: $dark-blue;
+   font-size: 20px;
+ }
 }
 
 .register {
-  transform: translate(-50%, 15%);
+  transform: translate(-50%, 12%);
   left: 50%;
 }
 
@@ -172,25 +184,13 @@ section{
 
 .login, .register, .new, .edit {
   position: relative;
-  label {
-    color: $dark-blue;
-    font-weight: bold;
-  }
-  .form-control, text-area {
-    color: $medium-blue;
-  }
 }
 
-.recommendation {
-  background-position: center;
-  position: relative;
-  list-style: none;
-  transform: translate(-50%);
-  left: 65%;
-  p {
-  text-align: justify;
+label {
+  color: $black;
   font-size: 15px;
-  }
+  letter-spacing: 3px;
+  text-transform: uppercase;
 }
 
 .second-column {
@@ -202,17 +202,92 @@ section{
   margin-top: 2%;
 }
 
-footer {
-  background-color: rgba(20, 20, 20, 1);
-  padding: 10px 0;
-  text-align: center;
-  color: $dark-blue;
-}
-
 #map {
-  height: calc(80vh - 50px);
+  height: calc(77vh);
 }
 
+#pac-input {
+  width: 100%;
+  margin-bottom: 2%;
+  border-bottom: 2px solid $green;
+  &:focus {
+    border-bottom: 2px solid $green;
+    color: $green;
+  }
+}
+
+
+#pac-container, .newForm {
+  margin-top: 10%;
+}
+
+input[type=text][readonly] {
+  color: $dark-blue;
+  background-color: transparent;
+  border-color: transparent;
+}
+
+input {
+  width: 200px;
+}
+
+.profile_pic {
+  padding-top: 12px;
+  border:2px solid black;
+  position:relative;
+  color:black;
+  text-align:center;
+  position: center;
+  cursor:pointer;
+  width: 40%;
+  height: 50px;
+  margin-left: 32%;
+  font-size: 15px;
+  font-weight: bold;
+  &:hover {
+    border-color: $red;
+    color: $red;
+  }
+}
+
+.hide_file {
+   position: absolute;
+   z-index: 1000;
+   opacity: 0;
+   cursor: pointer;
+   right: 0;
+   top: 0;
+   height: 100%;
+   font-size: 24px;
+   width: 100%;
+   cursor:pointer;
+   position: center;
+}
+
+.form-group {
+  letter-spacing: 2px;
+}
+
+.form-control {
+  border-radius: 0;
+  border-top: none;
+  border-left: none;
+  border-right: none;
+  &:hover {
+    border-bottom: 2px solid $green;
+  }
+  &:focus {
+    border-bottom: 2px solid $green;
+    color: $green;
+  }
+}
+
+.category {
+  border: 2px solid $green;
+  &:focus {
+    border: 2px solid $green;
+  }
+}
 
 @media only screen and (max-width: 950px) {
 
@@ -234,14 +309,4 @@ footer {
       }
     }
   }
-}
-
-input[type=text][disabled] {
-  color: red;
-  background-color: transparent;
-  border-color: transparent;
-}
-
-input {
-  width: 200px;
 }

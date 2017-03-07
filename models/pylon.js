@@ -1,5 +1,4 @@
 const mongoose = require('mongoose');
-const bcrypt = require('bcrypt');
 
 const pylonSchema = new mongoose.Schema({
   name: { type: String, required: true},
@@ -7,8 +6,14 @@ const pylonSchema = new mongoose.Schema({
   address: { type: String, required: true },
   website: { type: String, required: true },
   tel: { type: String, required: true },
+  lat: { type: String, required: true },
+  lng: { type: String, required: true },
   comments: { type: String, required: true },
   createdBy: { type: mongoose.Schema.ObjectId, ref: 'User', required: true }
 });
+
+pylonSchema.methods.ownedBy = function pylonOwnedBy(user) {
+  return this.createdBy.id === user.id;
+};
 
 module.exports = mongoose.model('Pylon', pylonSchema);

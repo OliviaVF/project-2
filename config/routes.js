@@ -4,6 +4,7 @@ const registrationsController = require('../controllers/registrations');
 const staticsController = require('../controllers/statics');
 const secureRoute = require('../lib/secureRoute');
 const upload = require('../lib/upload');
+const oauth = require('../controllers/oauth');
 
 const users = require('../controllers/users');
 const pylons = require('../controllers/pylons');
@@ -17,6 +18,14 @@ router.route('/pylons')
 
 router.route('/pylons/new')
   .get(secureRoute, pylons.new);
+
+router.route('/pylons/:id')
+  // .get(pylons.show)
+  .put(secureRoute, pylons.update)
+  .delete(secureRoute, pylons.delete);
+
+router.route('/pylons/:id/edit')
+  .get(secureRoute, pylons.edit);
 
 router.route('/users')
   .get(secureRoute, users.index);
@@ -39,6 +48,9 @@ router.route('/login')
 
 router.route('/logout')
   .get(sessionsController.delete);
+
+router.route('/oauth/facebook')
+.get(oauth.facebook);
 
 router.all('*', (req, res) => res.notFound());
 

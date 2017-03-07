@@ -25,8 +25,54 @@ function createRoute(req, res, next) {
     });
 }
 
+function deleteRoute(req, res, next) {
+  Pylon
+    .findById(req.params.id)
+    .exec()
+    .then((pylon) => {
+      if(!pylon) return res.notFound();
+      return pylon.remove();
+    })
+    .then(() => res.redirect('/pylons'))
+    .catch(next);
+}
+
+
+function editRoute(req, res, next) {
+  Pylon
+    .findById(req.params.id)
+    .exec()
+    .then((pylon) => {
+      return res.render('pylons/edit', { pylon });
+    })
+    .catch(next);
+}
+
+function updateRoute(req, res, next) {
+  Pylon
+    .findById(req.params.id)
+    .exec()
+    .then((pylon) => {
+      if(!pylon) return res.notFound();
+
+      for(const field in req.body) {
+        pylon[field] = req.body[field];
+      }
+
+      return pylon.save();
+    })
+    .then(() => res.redirect(`/pylons/${req.params.id}`))
+    .catch((err) => {
+      if(err.name === 'ValidationError') return res.badRequest(`/pylons/${req.params.id}/edit`, err.toString());
+      next(err);
+    });
+}
+
 module.exports = {
   index: indexRoute,
   new: newRoute,
-  create: createRoute
+  create: createRoute,
+  delete: deleteRoute,
+  update: updateRoute,
+  edit: editRoute
 };

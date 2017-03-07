@@ -1,13 +1,23 @@
 <% pylons.forEach((pylon) => { %>
-  <div>
-      <h2><%= pylon.name %></h2>
-      <p>
-        <%= pylon.category %><br>
-        <%= pylon.address %><br>
-        <%= pylon.website %><br>
-        <%= pylon.tel %><br>
-        <%= pylon.comments %><br>
-        <a href="/users/<%= user.id %>"><%= pylon.createdBy.username %></a>
-      </p>
+  <div class="row pylon">
+    <div class="col-md-3">
+      <a href="/users/<%= pylon.createdBy.id %>"><%= pylon.createdBy.username %></a>
+      <div class="image" style="background-image:url(<%= pylon.createdBy.imageSRC %>)" alt="<%= user.username %>"></div>
+    </div>
+    <div class="col-md-6 second-column">
+      <a href="/pylons/<%= pylon.id %>"><h3><%= pylon.name %></h3></a>
+      <p>Category: <%= pylon.category %></p>
+      <p>Address: <%= pylon.address %></p>
+      <p>Website: <%= pylon.website %></p>
+      <p>Tel Num: <%= pylon.tel %></p>
+      <p>Comments: <%= pylon.comments %></p>
+    <% if(locals.isAuthenticated && pylon.ownedBy(user)) { %>
+        <a href="/pylons/<%= pylon.id %>/edit" class="btn">Edit</a>
+        <form action="/pylons/<%= pylon.id %>" method="POST">
+          <input type="hidden" name="_method" value="DELETE"/>
+          <button class="btn">Delete</button>
+        </form>
+      <% } %>
+    </div>
   </div>
 <% }) %>

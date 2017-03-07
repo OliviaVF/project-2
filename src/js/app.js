@@ -52,5 +52,30 @@ $(() => {
       $('[name=lat]').val(lat);
       $('[name=lng]').val(lng);
     });
+
+    const pylons = $('#map').data('pylons');
+    console.log(pylons);
+
+    if ($('.userMap').length) {
+      pylons.forEach((pylon) => {
+        console.log('pylon', pylon);
+        const marker = new google.maps.Marker({
+          position: { lat: parseFloat(pylon.lat), lng: parseFloat(pylon.lng) },
+          map: map,
+          // icon: '../assets/images/pin.png',
+          animation: google.maps.Animation.DROP
+        });
+        google.maps.event.addListener(marker, 'click', function() {
+          console.log('in here');
+          $('#modalTrigger').trigger('click');
+          updateModal(pylon);
+        });
+      });
+    }
+  }
+
+  function updateModal(pylon) {
+    
+    $('.modal-body h1').text(pylon.name);
   }
 });

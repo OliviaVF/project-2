@@ -5,7 +5,7 @@
         <div class="dropdown">
         <% if(locals.isAuthenticated) { %>
           <li "nav-item">
-            <a href="/users/<%= currentUser.id %>"><div class="image" style="background-image:url(<%= currentUser.imageSRC %>)" alt="<%= currentUser.username %>"></div></a><br>
+            <a href="/users/<%= currentUser.id %>"><div id="navbarProfilePic" class="image" style="background-image:url(<%= currentUser.imageSRC %>)" alt="<%= currentUser.username %>"></div></a><br>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="/logout">Logout</a>

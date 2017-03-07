@@ -1,0 +1,55 @@
+<div class="edit col-md-6">
+  <h1>EDIT</h1>
+
+  <form method="POST" action="/pylons/<%= pylon.id %>">
+    <input type="hidden" name="_method" value="PUT">
+    <div class="form-group">
+      <label for="name">Name</label>
+      <input type="text" name="name" id="name" value="<%= pylon.name %>" class="form-control" readonly="readonly">
+    </div>
+    <div>
+      <label for="category">Category</label>
+      <select name="category" required>
+        <option value="" selected></option>
+        <option value="Amusement Park">Amusement Park</option>
+        <option value="Aquarium">Aquarium</option>
+        <option value="Art Gallery">Art Gallery</option>
+        <option value="Bar">Bar</option>
+        <option value="Beauty Salon">Beauty Salon</option>
+        <option value="Book Store">Book Store</option>
+        <option value="Cafe">Cafe</option>
+        <option value="Clothing Store">Clothing Store</option>
+        <option value="Dentist">Dentist</option>
+        <option value="Department Store">Department Store</option>
+        <option value="Doctor">Doctor</option>
+        <option value="Electrician">Electrician</option>
+        <option value="Furniture Store">Furniture Store</option>
+        <option value="Jewelry Store">Jewelry Store</option>
+        <option value="Library">Library</option>
+        <option value="Movie Theatre">Movie Theater</option>
+        <option value="Museum">Museum</option>
+        <option value="Pet Store">Pet Store</option>
+        <option value="Restaurant">Restaurant</option>
+        <option value="Shoe Store">Shoe Store</option>
+        <option value="Spa">Spa</option>
+      </select>
+    </div>
+    <div class="form-group">
+      <label for="address">Address</label>
+      <input type="text" name="address" id="address" value="<%= pylon.address %>" class="form-control" readonly="readonly">
+    </div>
+    <div class="form-group">
+      <label for="website">Website</label>
+      <input type="text" name="website" id="website" value="<%= pylon.website %>" class="form-control" readonly="readonly">
+    </div>
+    <div class="form-group">
+      <label for="tel">Tel Number</label>
+      <input type="text" name="tel" id="tel" value="<%= pylon.tel %>" class="form-control" readonly="readonly">
+    </div>
+    <div class="form-group">
+        <label for="comments">Comments</label>
+        <textarea class="form-control" name="comments"><%= pylon.comments %></textarea>
+    </div>
+    <button class="btn">Update</button>
+  </form>
+</div>

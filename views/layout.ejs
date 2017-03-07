@@ -10,7 +10,6 @@
       <% include ./partials/_navbar %>
     </header>
     <main class="container">
-      <h1>PYLON</h1>
       <% for(const type in messages) { %>
         <p class="flash <%= type %>"><%= messages[type] %></p>
       <% } %>
