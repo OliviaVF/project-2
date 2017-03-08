@@ -34,6 +34,9 @@ router.route('/users/:id')
   .get(secureRoute, users.show)
   .delete(secureRoute, users.delete);
 
+router.route('/users/:id/edit')
+  .get(secureRoute, users.edit);
+
 // logged in user's profile page
 // router.route('/user')
 // .get(secureRoute, registrations.show) -> could use the users/show template

@@ -3,6 +3,7 @@ const Pylon = require('../models/pylon');
 function indexRoute(req, res, next) {
   Pylon
     .find()
+    .sort({updatedAt: 'desc'})
     .populate('createdBy')
     .exec()
     .then((pylons) => res.render('pylons/index', { pylons }))
@@ -15,12 +16,12 @@ function newRoute(req, res) {
 
 function createRoute(req, res, next) {
   req.body.createdBy = req.user;
-
+  console.log(req.body);
   Pylon
     .create(req.body)
     .then(() => res.redirect('/pylons'))
     .catch((err) => {
-      if(err.name === 'ValidationError') return res.badRequest(`/pylons`, err.toString());
+      if(err.name === 'ValidationError') return res.badRequest('/pylons', err.toString());
       next(err);
     });
 }

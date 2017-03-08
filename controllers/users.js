@@ -34,9 +34,20 @@ function deleteRoute(req, res, next) {
     .catch(next);
 }
 
+function editRoute(req, res, next) {
+  User
+    .findById(req.params.id)
+    .exec()
+    .then((user) => {
+      return res.render('users/edit', { user });
+    })
+    .catch(next);
+}
+
 
 module.exports = {
   index: indexRoute,
   show: showRoute,
-  delete: deleteRoute
+  delete: deleteRoute,
+  edit: editRoute
 };

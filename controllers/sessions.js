@@ -19,7 +19,7 @@ function sessionsCreate(req, res, next) {
 
       req.user = user;
 
-      res.redirect('/');
+      res.redirect(`/users/${user.id}`);
     })
     .catch(next);
 }

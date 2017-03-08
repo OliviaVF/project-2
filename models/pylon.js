@@ -10,6 +10,8 @@ const pylonSchema = new mongoose.Schema({
   lng: { type: String, required: true },
   comments: { type: String, required: true },
   createdBy: { type: mongoose.Schema.ObjectId, ref: 'User', required: true }
+},{
+  timestamps: true
 });
 
 pylonSchema.methods.ownedBy = function pylonOwnedBy(user) {
