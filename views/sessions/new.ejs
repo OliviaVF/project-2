@@ -10,9 +10,11 @@
       <input type="password" name="password" id="password" required class="form-control">
     </div>
 
+  <span class="loginButtons">
     <button class="btn">Login</button>
+  </span>
   </form>
-
-  <a href="<%= oauth.facebook.getLoginURL() %>" target="_blank" class="btn">Facebook Login</a>
-
+  <span class="loginButtons">
+    <a href="<%= oauth.facebook.getLoginURL() %>" target="_blank" class="btn">Facebook Login</a>
+  </span>
 </div>

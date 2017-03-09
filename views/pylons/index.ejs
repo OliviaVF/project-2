@@ -1,30 +1,32 @@
-<% pylons.forEach((pylon, i) => { %>
-  <div class="row pylon">
-    <div class="col-md-2 offset-md-1">
-      <div class="image" style="background-image:url(<%= pylon.createdBy.imageSRC %>)" alt="<%= user.name %>"></div>
-      <div><a href="/users/<%= pylon.createdBy.id %>"><%= pylon.createdBy.name %></a></div>
-      <p><%= pylon.updatedAt %></p>
-    </div>
-    <div class="col-md-5 second-column">
-      <a href="/pylons/<%= pylon.id %>"><h3><%= pylon.name %></h3></a>
-      <p>Category: <%= pylon.category %></p>
-      <p>Address: <%= pylon.address %></p>
-      <p>Website: <%= pylon.website %></p>
-      <p>Tel Num: <%= pylon.tel %></p>
-      <p>Comments: <%= pylon.comments %></p>
-    </div>
-    <div class="col-md-3">
-    <% if(locals.isAuthenticated && pylon.ownedBy(user)) { %>
-        <a href="/pylons/<%= pylon.id %>/edit" class="btn">Edit</a>
-        <form action="/pylons/<%= pylon.id %>" method="POST">
-          <input type="hidden" name="_method" value="DELETE"/>
-          <button class="btn">Delete</button>
-        </form>
-      <% } %>
-      <% if(locals.isAuthenticated && !pylon.ownedBy(user)) { %>
-      <button id="modalTrigger2" type="button" class="btn" data-toggle="modal" data-target="#myModal<%= i+1 %>">
-        PIN
-      </button>
+
+  <% pylons.forEach((pylon, i) => { %>
+    <section class="eachPylon">
+    <div class="row pylon">
+      <div class="col-md-2 offset-md-1 firstColumn">
+        <div class="image" style="background-image:url(<%= pylon.createdBy.imageSRC %>)" alt="<%= user.name %>"></div>
+        <div><a href="/users/<%= pylon.createdBy.id %>"><%= pylon.createdBy.name %></a></div>
+        <p><%= new Date(pylon.updatedAt).toDateString() %></p>
+      </div>
+      <div class="col-md-5">
+        <h3><%= pylon.name %></h3></a>
+        <p>CATEGORY: <%= pylon.category %></p>
+        <p>ADDRESS: <%= pylon.address %></p>
+        <p>WEBSITE: <%= pylon.website %></p>
+        <p>TEL NUMBER: <%= pylon.tel %></p>
+        <p>COMMENTS: <%= pylon.comments %></p>
+      </div>
+      <div class="col-md-3">
+      <% if(locals.isAuthenticated && pylon.ownedBy(user)) { %>
+          <a href="/pylons/<%= pylon.id %>/edit" class="btn pylonIndex">Edit</a>
+          <form action="/pylons/<%= pylon.id %>" method="POST">
+            <input type="hidden" name="_method" value="DELETE"/>
+            <button class="btn pylonIndex">Delete</button>
+          </form>
+        <% } %>
+        <% if(locals.isAuthenticated && !pylon.ownedBy(user)) { %>
+        <button id="modalTrigger2" type="button" class="btn pylonIndex" data-toggle="modal" data-target="#myModal<%= i+1 %>">
+          PIN
+        </button>
           <div class="modal fade" id="myModal<%= i+1 %>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog" role="document">
               <div class="modal-content">
@@ -68,4 +70,5 @@
       <% } %>
     </div>
   </div>
+  </section>
 <% }) %>

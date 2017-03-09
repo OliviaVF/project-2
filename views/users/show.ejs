@@ -1,6 +1,10 @@
 <div class="row">
 
-  <div class="col-md-3">
+  <div class="col-md-1">
+    <a href="/users/<%= user.id %>"><div id="navbarProfilePic" class="image" style="background-image:url(<%= user.imageSRC %>)" alt="<%= user.name %>"></div></a>
+  </div>
+
+  <div class="col-md-3 offset-md-2">
     <form action="/pylons" method="GET" class="search-form">
       <div class="form-group">
         <select name="category" required class="category">
@@ -34,17 +38,17 @@
         <input type="submit" value="Filter" class="btn" id="submit">
       </div>
     </form>
-</div>
+  </div>
+
 
 
 <div class="col-md-13">
   <div class="userMap" id="map" data-pylons="<%= JSON.stringify(pylons) %>"></div>
 </div>
 
-
 <div class="row">
   <% if (user.id === currentUser.id) { %>
-    <div class="col-md-3">
+    <div class="col-md-3 offset-md-3">
       <a href="/users/<%= user.id %>/edit" class="btn">Edit Account</a>
     </div>
     <div class="col-md-3">
@@ -55,5 +59,6 @@
     </div>
   <% } %>
 </div>
+
 
 <% include ../partials/_map-modal %>

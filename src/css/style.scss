@@ -136,7 +136,7 @@ nav {
 text-transform: uppercase;
 letter-spacing: 3px;
 line-height: 40px;
-font-size: 40px;
+font-size: 32px;
 color: $yellow;
 }
 
@@ -190,10 +190,17 @@ label {
   width: 100%;
   margin-bottom: 2%;
   border-bottom: 2px solid $green;
+  border-top: 0;
+  border-right: 0;
+  border-left: 0;
   &:focus {
     border-bottom: 2px solid $green;
     color: $green;
   }
+}
+
+#comments {
+  border-bottom: 2px solid $green;
 }
 
 #pac-container, .newForm {
@@ -264,8 +271,6 @@ input[type=text] {
 
 select.category {
   border: 0;
-  // outline: 2px inset black;
-  // outline-offset: -1px;
   text-transform: uppercase;
   font-family: 'Raleway', sans-serif;
   font-weight: bold;
@@ -276,6 +281,18 @@ select.category {
   margin: 12px;
   letter-spacing: 3px;
   margin-top: 30px;
+}
+
+select.newCategory {
+  border: 0;
+  text-transform: uppercase;
+  font-family: 'Raleway', sans-serif;
+  font-size: 15px;
+  position: center;
+  background-color: white;
+  width: 180px;
+  margin: 12px;
+  letter-spacing: 3px;
 }
 
 .index {
@@ -291,6 +308,45 @@ select.category {
     display: block;
   }
 }
+
+.loginButtons {
+  margin-left: 25%;
+}
+
+.registerButton {
+  margin-left: 28%
+}
+
+.addButton {
+  margin-left: 30%;
+}
+
+.secondColumn {
+  font-size: 15px;
+}
+
+.pylonIndex {
+  width: 200px;
+}
+
+.eachPylon {
+  border-bottom: 2px solid $green;
+  padding-top: 30px;
+  padding-bottom: 30px;
+  &:first-of-type {
+    padding-top: 0;
+  }
+  &:last-of-type {
+    border-bottom: 0;
+  }
+}
+
+.modal-body {
+  margin-left: 20px;
+  margin-right: 20px;
+  margin-top: 20px;
+}
+
 
 @media only screen and (max-width: 950px) {
 
@@ -311,5 +367,8 @@ select.category {
         }
       }
     }
+  }
+  .loginButtons {
+    margin-left: 6%
   }
 }

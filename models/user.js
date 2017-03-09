@@ -12,6 +12,7 @@ const userSchema = new mongoose.Schema({
 userSchema.virtual('imageSRC')
   .get(function imageSRC(){
     if(!this.image) return null;
+    if(this.image.match(/assets/)) return this.image;
     if(this.image.match(/^http/)) return this.image;
     return `https://s3-eu-west-1.amazonaws.com/wdi-25-london-project-2/${this.image}`;
   });
@@ -36,6 +37,10 @@ userSchema.pre('save', function hashPassword(next) { // call next otherwise Mong
     this.password = bcrypt.hashSync(this.password, bcrypt.genSaltSync(8));
   }
   next();
+});
+
+userSchema.pre('remove', function deleteUsersPylons(next) {
+  this.Model('Pylon').remove({ createdBy: this.id }, next);
 });
 
 userSchema.methods.validatePassword = function validatePassword(password) { //methods is creating instance method on our user

@@ -1,5 +1,4 @@
 <div class="edit col-md-6">
-  <h1>EDIT</h1>
 
   <form method="POST" action="/pylons/<%= pylon.id %>">
     <input type="hidden" name="_method" value="PUT">
@@ -9,8 +8,8 @@
     </div>
     <div>
       <label for="category">Category</label>
-      <select name="category" required>
-        <option value="" selected></option>
+      <select name="category" required class="newCategory">
+        <option value="" selected>Select</option>
         <option value="Amusement Park">Amusement Park</option>
         <option value="Aquarium">Aquarium</option>
         <option value="Art Gallery">Art Gallery</option>
@@ -50,6 +49,6 @@
         <label for="comments">Comments</label>
         <textarea class="form-control" name="comments"><%= pylon.comments %></textarea>
     </div>
-    <button class="btn">Update</button>
+    <button class="btn registerButton">Update</button>
   </form>
 </div>
