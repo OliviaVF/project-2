@@ -45,7 +45,7 @@ function facebook(req, res, next) {
    req.session.userId = user.id;
    req.session.isAuthenticated = true;
 
-   req.flash('info', `welcome back ${user.username}!`);
+   req.flash('info', `welcome back ${user.name}!`);
    res.redirect('/');
  })
  .catch(next);
