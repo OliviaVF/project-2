@@ -62,7 +62,7 @@ function updateRoute(req, res, next) {
 
       return pylon.save();
     })
-    .then(() => res.redirect(`/pylons/${req.params.id}`))
+    .then(() => res.redirect(`/users/${req.user.id}`))
     .catch((err) => {
       if(err.name === 'ValidationError') return res.badRequest(`/pylons/${req.params.id}/edit`, err.toString());
       next(err);

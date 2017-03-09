@@ -1,5 +1,5 @@
 function indexRoute(req, res) {
-  res.render('statics/index');
+  res.render('statics/index', { page: 'home'});
 }
 
 module.exports = {

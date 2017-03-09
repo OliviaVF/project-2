@@ -5,7 +5,7 @@
     <title>PYLON</title>
     <% include ./partials/_stylesheets %>
   </head>
-  <body>
+  <body class="<%= locals.page %>">
     <% include ./partials/_navbar %>
     <main class="container">
       <% for(const type in messages) { %>
