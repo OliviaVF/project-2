@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 mongoose.Promise = require('bluebird');
 
-const dbURI = 'mongodb://localhost/project-2-development';
+const { dbURI } = require('../config/environment');
 mongoose.connect(dbURI);
 
 const User = require('../models/user');
