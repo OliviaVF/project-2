@@ -11,8 +11,8 @@
         <h3><%= pylon.name %></h3></a>
         <p>CATEGORY: <%= pylon.category %></p>
         <p>ADDRESS: <%= pylon.address %></p>
-        <p>WEBSITE: <%= pylon.website %></p>
-        <p>TEL NUMBER: <%= pylon.tel %></p>
+        <p>WEBSITE: <a href="<%= pylon.website %>">Click here!</a></p>
+        <p>TEL NUMBER: <a href="tel:<%= pylon.tel %>"><%= pylon.tel %></a></p>
         <p>COMMENTS: <%= pylon.comments %></p>
       </div>
       <div class="col-md-3">
