@@ -20,7 +20,6 @@ router.route('/pylons/new')
   .get(secureRoute, pylons.new);
 
 router.route('/pylons/:id')
-  // .get(pylons.show)
   .put(secureRoute, pylons.update)
   .delete(secureRoute, pylons.delete);
 

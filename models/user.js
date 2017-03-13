@@ -40,7 +40,7 @@ userSchema.pre('save', function hashPassword(next) { // call next otherwise Mong
 });
 
 userSchema.pre('remove', function deleteUsersPylons(next) {
-  this.Model('Pylon').remove({ createdBy: this.id }, next);
+  this.model('Pylon').remove({ createdBy: this.id }, next);
 });
 
 userSchema.methods.validatePassword = function validatePassword(password) { //methods is creating instance method on our user
