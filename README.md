@@ -2,11 +2,7 @@
 
 ##GA WDI London - Project 2
 
-###Which character will come out on top? 
-
-This version of Top Trumps has one game option: player vs. computer. 
-
-#####[Play it here!](https://pure-atoll-74725.herokuapp.com/)
+#####[View it here!](https://pure-atoll-74725.herokuapp.com/)
 
 ![](./src/assets/images/1.jpg)
 
@@ -25,7 +21,7 @@ Users can add new recommendations, and when doing so these are also shared on th
 
 #####Build
 
-* HTML 5, SASS, jQuery, AJAX, Express, NODEjs, and Google Maps API were used to create this application.
+* HTML 5, SASS, jQuery, AJAX, Express, Node.js, and Google Maps API were used to create this application.
 * The font 'Raleway' was used across all pages.
 
 ![](./src/assets/images/3.jpg)
