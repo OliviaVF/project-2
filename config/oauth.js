@@ -7,7 +7,7 @@ module.exports = {
     profileURL: 'https://api.facebook.com/user',
     clientId: process.env.FACEBOOK_CLIENT_ID2,
     clientSecret: process.env.FACEBOOK_CLIENT_SECRET2,
-    redirectURI: env === 'production' ? 'https://pure-atoll-74725.herokuapp.com/oauth/facebook' : 'http://localhost:3000/oauth/facebook',
+    redirectURI: env === 'development' ? 'https://pure-atoll-74725.herokuapp.com/oauth/facebook' : 'http://localhost:3000/oauth/facebook',
     getLoginURL() {
       return `${this.loginURL}?client_id=${this.clientId}&redirect_uri=${this.redirectURI}`;
     }
